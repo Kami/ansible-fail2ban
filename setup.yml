@@ -1,0 +1,7 @@
+---
+- name: 'fail2ban playbook'
+  hosts: fail2ban_nodes
+  user: root
+
+  roles:
+    - fail2ban

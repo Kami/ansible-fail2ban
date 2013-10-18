@@ -1,0 +1,11 @@
+---
+- name: Install fail2ban
+  apt: pkg=fail2ban state=installed update-cache=yes
+  register: fail2ban_install
+  tags:
+    - apt
+
+- name: Install config
+  template: src=jail.local.j2 dest=/etc/fail2ban/jail.local
+  notify:
+    - reload fail2ban
